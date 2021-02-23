@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheets/normalize.css">
+    <link rel="stylesheet" href="stylesheets/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Rock+Salt&display=swap" rel="stylesheet">
+    <title>Avicii - Friend Of Mine (Lyric Video)</title>
+  </head>
+  <body>
+    <div class="image-container">
+      <img src="images/avicii-logo.gif" alt="avicii-logo" id="logo">
+    </div>
+    <div class="lyric-container">
+      <p id="lyric"></p>
+    </div>
+    <audio controls id="player" ontimeupdate="changeLyrics(this)">
+      <source src="audio/friend-of-mine.mp3" type="audio/mp3">
+    </audio>
+    <script>
+      function changeLyrics(event){
+        /* Get current time of song */
+        var time = event.currentTime;
+        /* Lyric variable */
+        var lyric = "";
+        /* Change lyric variable value based on song time */
+        switch(true){
+          case(time >= 8.25 && time < 11):
+            lyric = "Hey";
+            break;
+          case(time >= 11 && time < 15):
+            lyric = "Do you remember we said Hello";
+            break;
+          case(time >= 15.5 && time < 19.75):
+            lyric = "And you asked my about my Levis t-shirt";
+            break;
+          case(time >= 19.75 && time < 22):
+            lyric = "Said you are a friend of mine";
+            break;
+          case(time >= 25.75 && time < 28.25):
+            lyric = "My oh my";
+            break;
+          case(time >= 28.25 && time < 32.5):
+            lyric = "You must have saved me about a thousand times";
+            break;
+          case(time >= 32.5 && time < 36.75):
+            lyric = "I wouldn't be the one I am today if";
+            break;
+          case(time >= 36.75 && time < 40):
+            lyric = "You hadn't been a friend of mine";
+            break;
+          case(time >= 42.5 && time < 44.5):
+            lyric = "I ain't misbehaving";
+            break;
+          case(time >= 44.5 && time < 47.15):
+            lyric = "I'm just telling you the truth";
+            break;
+          case(time >= 47.15 && time < 49.15):
+            lyric = "Take my love for granted";
+            break;
+          case(time >= 49.15 && time < 51.15):
+            lyric = "Yeah I'll give it all to you";
+            break;
+          case(time >= 51.15 && time < 53.5):
+            lyric = "Made me count for something";
+            break;
+          case(time >= 53.5 && time < 55.5):
+            lyric = "Yeah, I feel it in my heart";
+            break;
+          case(time >= 55.5 && time < 58.5):
+            lyric = "God only knows what I've been";
+            break;
+          case(time >= 58.5 && time < 60.5):
+            lyric = "If you hadn't been a friend of mine";
+            break;
+          case(time >= 74 && time < 76):
+            lyric = "Hey";
+            break;
+          case(time >= 76 && time < 80):
+            lyric = "I haven't seen you around since high school";
+            break;
+          case(time >= 81 && time < 82):
+            lyric = "How you doin";
+            break;
+          case(time >= 82 && time < 85.45):
+            lyric = "Do you still remember me";
+            break;
+          case(time >= 85.45 && time < 87.5):
+            lyric = "Are you still a friend of mine";
+            break;
+          case(time >= 91 && time < 93.75):
+            lyric = "Now I see";
+            break;
+          case(time >= 93.75 && time < 98):
+            lyric = "Why I get nervous when you look at me";
+            break;
+          case(time >= 98 && time < 102):
+            lyric = "It's like your eyes are trying to tell me something";
+            break;
+          case(time >= 102 && time < 105):
+            lyric = "That you're more than just a friend of mine";
+            break;
+          case(time >= 108 && time < 110.25):
+            lyric = "I ain't misbehaving";
+            break;
+          case(time >= 110.25 && time < 112.5):
+            lyric = "I'm just telling you the truth";
+            break;
+          case(time >= 112.5 && time < 114.5):
+            lyric = "Take my love for granted";
+            break;
+          case(time >= 114.5 && time < 116.75):
+            lyric = "Yeah I'll give it all to you";
+            break;
+          case(time >= 116.75 && time < 119):
+            lyric = "Made me count for something";
+            break;
+          case(time >= 119 && time < 121):
+            lyric = "Yeah, I feel it in my heart";
+            break;
+          case(time >= 121 && time < 124):
+            lyric = "God only knows what I've been";
+            break;
+          case(time >= 124 && time < 126):
+            lyric = "If you hadn't been a friend of mine";
+            break;
+        }
+        /* Add class for image to "bump" */
+        if(time >= 60.25 && time < 69 && !event.paused || time >= 91.25 && time < 107.5 && !event.paused || time >= 125.65 && time < 137 || time >= 138.75 && time < 150.25){
+          document.getElementById("logo").classList.add("img-bump");
+        }if(time < 60.25 || time >= 69 && time < 91.25 || time >= 107.5 && time < 125.65 || time >= 137 && time < 138.75 || time >= 150.25 || event.paused){
+          document.getElementById("logo").classList.remove("img-bump");
+        }
+        /* Add lyric variable value to element html */
+        document.getElementById("lyric").innerHTML = lyric;
+      }
+    </script>
+  </body>
+</html>
