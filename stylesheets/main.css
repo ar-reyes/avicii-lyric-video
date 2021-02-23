@@ -7,7 +7,17 @@ body{
   height: 100vh;
 }
 
-/* Center image */
+/* Message */
+#msg{
+  width: 100%;
+  position: absolute;
+  top: 12vh;
+  left: 0;
+  text-align: center;
+  color: white;
+}
+
+/* Image container */
 .image-container{
   width: 100%;
   height: 100vh;
@@ -20,6 +30,7 @@ body{
 img{
   width: 50%;
   border-radius: 50%;
+  cursor: pointer;
   /* Add RGB ring animation */
   -webkit-animation-name: rgb-change;
   animation-name: rgb-change;

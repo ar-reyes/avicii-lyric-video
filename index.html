@@ -9,8 +9,9 @@
     <title>Avicii - Friend Of Mine (Lyric Video)</title>
   </head>
   <body>
+    <p id="msg">Click / tap image to play and pause the music</p>
     <div class="image-container">
-      <img src="images/avicii-logo.gif" alt="avicii-logo" id="logo">
+      <img src="images/avicii-logo.gif" alt="avicii-logo" id="avicii-logo">
     </div>
     <div class="lyric-container">
       <p id="lyric"></p>
@@ -19,6 +20,13 @@
       <source src="audio/friend-of-mine.mp3" type="audio/mp3">
     </audio>
     <script>
+      var player = document.querySelector('#player');
+      player.onplaying = function() {
+        document.querySelector('#msg').style.display = 'none';
+      }
+      document.querySelector('#avicii-logo').addEventListener('click', function(){
+        player.paused?player.play():player.pause();
+      });
       function changeLyrics(event){
         /* Get current time of song */
         var time = event.currentTime;
@@ -128,9 +136,9 @@
         }
         /* Add class for image to "bump" */
         if(time >= 60.25 && time < 69 && !event.paused || time >= 91.25 && time < 107.5 && !event.paused || time >= 125.65 && time < 137 || time >= 138.75 && time < 150.25){
-          document.getElementById("logo").classList.add("img-bump");
+          document.getElementById("avicii-logo").classList.add("img-bump");
         }if(time < 60.25 || time >= 69 && time < 91.25 || time >= 107.5 && time < 125.65 || time >= 137 && time < 138.75 || time >= 150.25 || event.paused){
-          document.getElementById("logo").classList.remove("img-bump");
+          document.getElementById("avicii-logo").classList.remove("img-bump");
         }
         /* Add lyric variable value to element html */
         document.getElementById("lyric").innerHTML = lyric;
